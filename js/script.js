@@ -1,4 +1,6 @@
 window.onload = function () {
+  // AOS적용
+  AOS.init();
   // 메뉴기능
   const nav = document.querySelector(".nav");
   const btMenu = document.querySelector(".bt-menu");
@@ -79,6 +81,7 @@ window.onload = function () {
   let videoIndex = 0;
   videos[videoIndex].play();
   // visual slide적용
+  // 스와이퍼 슬라이드 초기화
   let swVisual = new Swiper(".swVisual", {
     loop: true,
   });
@@ -125,11 +128,11 @@ window.onload = function () {
         clearInterval(videoTimer);
         videoReset();
       }
-    }, videoTimer * 10);
+    }, videoTime * 10);
   }
   videoReset();
   const visualControlLi = document.querySelectorAll(".visual-control > li");
-  visualControlLi.forEach((item, index) => { 
+  visualControlLi.forEach((item, index) => {
     item.addEventListener("click", function () {
       videoIndex = index;
       swVisual.slideTo(videoIndex);
