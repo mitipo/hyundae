@@ -1,6 +1,24 @@
 window.onload = function () {
   // AOS적용
   AOS.init();
+  // 안내창
+  let body = document.querySelector("body");
+  let modal = document.querySelector(".modal-wrap");
+  modal.addEventListener("click", function () {
+    // modal.style.display = "none";
+    // fadeout(modal);
+    anime({
+      targets: ".modal",
+      delay: 200,
+      duration: 100,
+      opacity: 0,
+      easing: "easeInOutQuad",
+      complete: function () {
+        modal.style.display = "none";
+        body.classList.add("active");
+      },
+    });
+  });
   // 메뉴기능
   const nav = document.querySelector(".nav");
   const btMenu = document.querySelector(".bt-menu");
